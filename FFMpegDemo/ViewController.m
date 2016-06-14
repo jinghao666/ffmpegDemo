@@ -24,6 +24,9 @@
 #import "OpenGLView20.h"
 
 @interface ViewController ()
+{
+    BOOL _stop;
+}
 @property (weak, nonatomic) IBOutlet UITextField *outputurl;
 @property (weak, nonatomic) IBOutlet UITextField *inputurl;
 @property (weak, nonatomic) IBOutlet OpenGLView20 *openglView;
@@ -69,13 +72,13 @@
 int height,width;
 - (IBAction)clickDecodeButton:(id)sender {
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    [self decode];
+    [self newDecode];
 });
 }
 -(void)newDecode{
-    AVFormatContext *context;
+    AVFormatContext *formatContext;
     AVCodec* codec;
-    AVCodecContext* codecCon;
+    AVCodecContext* codecContext;
     AVPacket* packet;
     AVFrame* frame;
     
@@ -84,32 +87,101 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                                                                , NSUserDomainMask
                                                                , YES)[0];
     output_nsstr = [output_nsstr stringByAppendingPathComponent:@"2.yvu"];
-    int result = avformat_open_input(&context, input_nsstr.UTF8String, NULL, NULL);
+    formatContext = avformat_alloc_context();
+    int result = avformat_open_input(&formatContext, input_nsstr.UTF8String, NULL, NULL);
     if (result != 0) {
         NSLog(@"avformat_open_input error:%d",result);
     }
-    result = avformat_find_stream_info(context, NULL);
+    result = avformat_find_stream_info(formatContext, NULL);
     if (result != 0) {
         NSLog(@"avformat_find_stream_info error:%d",result);
     }
-    for (int i = 0; context->nb_streams; i++) {
-        if (context->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_VIDEO) {
-            codec = avcodec_find_decoder(context->streams[i]->codecpar->codec_id);
+    for (int i = 0; formatContext->nb_streams; i++) {
+        if (formatContext->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_VIDEO) {
+            codec = avcodec_find_decoder(formatContext->streams[i]->codecpar->codec_id);
             if (codec == NULL) {
                 NSLog(@"avcodec_find_decoder err");
-
             }
             break;
         }
     }
-    codecCon = avcodec_alloc_context3(codec);
-    avcodec_open2(codecCon, codec, NULL);
+    codecContext = avcodec_alloc_context3(codec);
+    result = avcodec_open2(codecContext, codec, NULL);
+    if (result != 0) {
+        NSLog(@"avcodec_open2 err");
+
+    }
     packet =av_packet_alloc();
     frame = av_frame_alloc();
-    avcodec_send_packet(codecCon, <#const AVPacket *avpkt#>)
+    _stop = NO;
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        int result = av_read_frame(formatContext, packet);
+        while (!_stop && 0 == result) {
+            ret = avcodec_decode_video2(pCodecCtx, pFrame, &got_picture, packet);
+
+            int result = avcodec_send_packet(codecContext, packet);
+            char* c = (char*)&result;
+            if (0 != result) {
+                NSString* err;
+                if (result == AVERROR(EAGAIN)) {
+                    err = @"EAGAIN";
+                }else if(result == AVERROR(EINVAL)){
+                    err = @"EINVAL";
+                }else if (result == AVERROR_EOF){
+                    err = @"AVERROR_EOF";
+                }else if (result == AVERROR(ENOMEM)){
+                    err = @"AVERROR(ENOMEM)";
+
+                }
+
+                NSLog(@"avcodec_send_packet:%c%c%c%c error:%@",c[3],c[2],c[1],c[0],err);
+            }
+            sleep(0.9);
+
+            result = av_read_frame(formatContext, packet);
+//            AVERROR_EOF
+        }
+        NSString* err;
+        if (result == AVERROR(EAGAIN)) {
+            err = @"EAGAIN";
+        }else if(result == AVERROR(EINVAL)){
+            err = @"EINVAL";
+        }else if (result == AVERROR_EOF){
+            err = @"AVERROR_EOF";
+        }
+        NSLog(@"av_read_frame:%c,%c,%c,%c ,error:%@",(char)(-result),(char)(-result>>8),(char)(-result>>16),(char)(-result>>24),err);
+        
+    });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        while (!_stop) {
+            int result = avcodec_receive_frame(codecContext, frame);
+//            char* c = (char*)&result;
+            if (0 != result) {
+                NSString* err;
+                if (result == AVERROR(EAGAIN)) {
+                    err = @"EAGAIN";
+                }else if(result == AVERROR(EINVAL)){
+                    err = @"EINVAL";
+                }else if (result == AVERROR_EOF){
+                    err = @"AVERROR_EOF";
+                }
+                NSLog(@"avcodec_receive_frame:%c,%c,%c,%c ,error:%@",(char)(-result),(char)(-result>>8),(char)(-result>>16),(char)(-result>>24),err);
+            }else{
+            
+                NSLog(@"avcodec_receive_frame success");
+            }
+            sleep(1);
+        }
+
+    });
+   
     
     
-    
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    _stop = !_stop;
+    NSLog(@"_stop:%d",_stop);
 }
 -(void)decode{
     AVFormatContext	*pFormatCtx;
