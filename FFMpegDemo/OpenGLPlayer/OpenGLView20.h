@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 ZY.SYM. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <UIKit/UIScrollView.h>
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>

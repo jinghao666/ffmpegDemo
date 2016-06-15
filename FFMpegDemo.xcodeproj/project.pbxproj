@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C51986301CF4446400CCBAEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C519862F1CF4446400CCBAEB /* main.m */; };
-		C51986331CF4446400CCBAEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C51986321CF4446400CCBAEB /* AppDelegate.m */; };
-		C51986361CF4446400CCBAEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C51986351CF4446400CCBAEB /* ViewController.m */; };
+		C51986301CF4446400CCBAEB /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = C519862F1CF4446400CCBAEB /* main.mm */; };
+		C51986331CF4446400CCBAEB /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = C51986321CF4446400CCBAEB /* AppDelegate.mm */; };
+		C51986361CF4446400CCBAEB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C51986351CF4446400CCBAEB /* ViewController.mm */; };
 		C51986391CF4446400CCBAEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51986371CF4446400CCBAEB /* Main.storyboard */; };
 		C519863B1CF4446400CCBAEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C519863A1CF4446400CCBAEB /* Assets.xcassets */; };
 		C519863E1CF4446400CCBAEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C519863C1CF4446400CCBAEB /* LaunchScreen.storyboard */; };
@@ -21,8 +21,7 @@
 		C51987541CF44FB700CCBAEB /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987531CF44FB700CCBAEB /* VideoToolbox.framework */; };
 		C51987561CF44FD000CCBAEB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987551CF44FD000CCBAEB /* CoreMedia.framework */; };
 		C51D24C11CF7E1A100B6A817 /* HYOpenALHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D24BD1CF7E1A100B6A817 /* HYOpenALHelper.m */; };
-		C51D24C21CF7E1A100B6A817 /* OpenGLView20.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D24C01CF7E1A100B6A817 /* OpenGLView20.m */; };
-		C51D253E1CF81A2800B6A817 /* GJQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = C51D253D1CF81A2800B6A817 /* GJQueue.mm */; };
+		C51D24C21CF7E1A100B6A817 /* OpenGLView20.mm in Sources */ = {isa = PBXBuildFile; fileRef = C51D24C01CF7E1A100B6A817 /* OpenGLView20.mm */; };
 		C53791BD1CF6948300B5CD50 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C53791BC1CF6948300B5CD50 /* 1.mp4 */; };
 		C53791BF1CF69FD500B5CD50 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C53791BE1CF6954900B5CD50 /* test.mp4 */; };
 		C560FCEF1CF5A9E900488CE4 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C560FCE71CF5A9E900488CE4 /* libavcodec.a */; };
@@ -34,15 +33,16 @@
 		C560FCF51CF5A9E900488CE4 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C560FCED1CF5A9E900488CE4 /* libswresample.a */; };
 		C560FCF61CF5A9E900488CE4 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C560FCEE1CF5A9E900488CE4 /* libswscale.a */; };
 		C560FCFD1CF5AA3600488CE4 /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C560FCFC1CF5AA3600488CE4 /* libx264.a */; };
+		C5613F471D11397F00D0F9E5 /* H264Decoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = C5613F461D11397F00D0F9E5 /* H264Decoder.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C519862B1CF4446300CCBAEB /* FFMpegDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFMpegDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C519862F1CF4446400CCBAEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C519862F1CF4446400CCBAEB /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		C51986311CF4446400CCBAEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C51986321CF4446400CCBAEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C51986321CF4446400CCBAEB /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		C51986341CF4446400CCBAEB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C51986351CF4446400CCBAEB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C51986351CF4446400CCBAEB /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		C51986381CF4446400CCBAEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C519863A1CF4446400CCBAEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C519863D1CF4446400CCBAEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		C51D24BC1CF7E1A100B6A817 /* HYOpenALHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYOpenALHelper.h; sourceTree = "<group>"; };
 		C51D24BD1CF7E1A100B6A817 /* HYOpenALHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYOpenALHelper.m; sourceTree = "<group>"; };
 		C51D24BF1CF7E1A100B6A817 /* OpenGLView20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView20.h; sourceTree = "<group>"; };
-		C51D24C01CF7E1A100B6A817 /* OpenGLView20.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView20.m; sourceTree = "<group>"; };
+		C51D24C01CF7E1A100B6A817 /* OpenGLView20.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenGLView20.mm; sourceTree = "<group>"; };
 		C51D24C41CF7E75300B6A817 /* avfilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avfilter.h; sourceTree = "<group>"; };
 		C51D24C51CF7E75300B6A817 /* avfiltergraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avfiltergraph.h; sourceTree = "<group>"; };
 		C51D24C61CF7E75300B6A817 /* buffersink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffersink.h; sourceTree = "<group>"; };
@@ -142,8 +142,6 @@
 		C51D25181CF7E75300B6A817 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		C51D251A1CF7E75300B6A817 /* swresample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swresample.h; sourceTree = "<group>"; };
 		C51D251B1CF7E75300B6A817 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
-		C51D253C1CF81A2800B6A817 /* GJQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJQueue.h; sourceTree = "<group>"; };
-		C51D253D1CF81A2800B6A817 /* GJQueue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GJQueue.mm; sourceTree = "<group>"; };
 		C53791BC1CF6948300B5CD50 /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
 		C53791BE1CF6954900B5CD50 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		C560FC771CF5A9E900488CE4 /* avcodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avcodec.h; sourceTree = "<group>"; };
@@ -178,6 +176,9 @@
 		C560FCF91CF5AA3600488CE4 /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
 		C560FCFA1CF5AA3600488CE4 /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		C560FCFC1CF5AA3600488CE4 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
+		C5613F441D1138FD00D0F9E5 /* GJQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJQueue.h; sourceTree = "<group>"; };
+		C5613F451D11397F00D0F9E5 /* H264Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264Decoder.h; sourceTree = "<group>"; };
+		C5613F461D11397F00D0F9E5 /* H264Decoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = H264Decoder.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,17 +234,19 @@
 		C519862D1CF4446300CCBAEB /* FFMpegDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C5613F451D11397F00D0F9E5 /* H264Decoder.h */,
+				C5613F461D11397F00D0F9E5 /* H264Decoder.mm */,
 				C51D253B1CF81A2800B6A817 /* queue */,
 				C51D24BB1CF7E1A100B6A817 /* HYOpenALHelper */,
 				C51D24BE1CF7E1A100B6A817 /* OpenGLPlayer */,
 				C560FCF71CF5AA3600488CE4 /* X264 */,
 				C560FC741CF5A9E900488CE4 /* FFmpeg */,
 				C51986311CF4446400CCBAEB /* AppDelegate.h */,
-				C51986321CF4446400CCBAEB /* AppDelegate.m */,
+				C51986321CF4446400CCBAEB /* AppDelegate.mm */,
 				C53791BE1CF6954900B5CD50 /* test.mp4 */,
 				C53791BC1CF6948300B5CD50 /* 1.mp4 */,
 				C51986341CF4446400CCBAEB /* ViewController.h */,
-				C51986351CF4446400CCBAEB /* ViewController.m */,
+				C51986351CF4446400CCBAEB /* ViewController.mm */,
 				C51986371CF4446400CCBAEB /* Main.storyboard */,
 				C519863A1CF4446400CCBAEB /* Assets.xcassets */,
 				C519863C1CF4446400CCBAEB /* LaunchScreen.storyboard */,
@@ -256,7 +259,7 @@
 		C519862E1CF4446300CCBAEB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C519862F1CF4446400CCBAEB /* main.m */,
+				C519862F1CF4446400CCBAEB /* main.mm */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -274,7 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				C51D24BF1CF7E1A100B6A817 /* OpenGLView20.h */,
-				C51D24C01CF7E1A100B6A817 /* OpenGLView20.m */,
+				C51D24C01CF7E1A100B6A817 /* OpenGLView20.mm */,
 			);
 			path = OpenGLPlayer;
 			sourceTree = "<group>";
@@ -401,8 +404,7 @@
 		C51D253B1CF81A2800B6A817 /* queue */ = {
 			isa = PBXGroup;
 			children = (
-				C51D253C1CF81A2800B6A817 /* GJQueue.h */,
-				C51D253D1CF81A2800B6A817 /* GJQueue.mm */,
+				C5613F441D1138FD00D0F9E5 /* GJQueue.h */,
 			);
 			path = queue;
 			sourceTree = "<group>";
@@ -586,12 +588,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C51986361CF4446400CCBAEB /* ViewController.m in Sources */,
-				C51986331CF4446400CCBAEB /* AppDelegate.m in Sources */,
-				C51986301CF4446400CCBAEB /* main.m in Sources */,
+				C5613F471D11397F00D0F9E5 /* H264Decoder.mm in Sources */,
+				C51986361CF4446400CCBAEB /* ViewController.mm in Sources */,
+				C51986331CF4446400CCBAEB /* AppDelegate.mm in Sources */,
+				C51986301CF4446400CCBAEB /* main.mm in Sources */,
 				C51D24C11CF7E1A100B6A817 /* HYOpenALHelper.m in Sources */,
-				C51D253E1CF81A2800B6A817 /* GJQueue.mm in Sources */,
-				C51D24C21CF7E1A100B6A817 /* OpenGLView20.m in Sources */,
+				C51D24C21CF7E1A100B6A817 /* OpenGLView20.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +715,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFmpeg/include";
 				INFOPLIST_FILE = FFMpegDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -740,6 +743,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFmpeg/include";
 				INFOPLIST_FILE = FFMpegDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

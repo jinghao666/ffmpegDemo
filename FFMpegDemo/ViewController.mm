@@ -72,7 +72,7 @@
 int height,width;
 - (IBAction)clickDecodeButton:(id)sender {
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    [self newDecode];
+    [self decode];
 });
 }
 -(void)newDecode{
@@ -82,7 +82,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     AVPacket* packet;
     AVFrame* frame;
     
-    NSString *input_nsstr=[[NSBundle mainBundle]pathForResource:@"1" ofType:@"mp4"];
+    NSString *input_nsstr=[[NSBundle mainBundle]pathForResource:@"test" ofType:@"mp4"];
     NSString *output_nsstr=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory
                                                                , NSUserDomainMask
                                                                , YES)[0];
@@ -102,24 +102,24 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             if (codec == NULL) {
                 NSLog(@"avcodec_find_decoder err");
             }
+            codecContext = formatContext->streams[i]->codec;
             break;
         }
     }
-    codecContext = avcodec_alloc_context3(codec);
+//    codecContext = avcodec_alloc_context3(codec);
     result = avcodec_open2(codecContext, codec, NULL);
     if (result != 0) {
         NSLog(@"avcodec_open2 err");
-
     }
     packet =av_packet_alloc();
     frame = av_frame_alloc();
     _stop = NO;
-
+    __block int inCount=0,coutCount = 0;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        int got_picture;
         int result = av_read_frame(formatContext, packet);
-        while (!_stop && 0 == result) {
-            ret = avcodec_decode_video2(pCodecCtx, pFrame, &got_picture, packet);
 
+        while (!_stop && 0 == result) {
             int result = avcodec_send_packet(codecContext, packet);
             char* c = (char*)&result;
             if (0 != result) {
@@ -132,16 +132,16 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     err = @"AVERROR_EOF";
                 }else if (result == AVERROR(ENOMEM)){
                     err = @"AVERROR(ENOMEM)";
-
                 }
-
                 NSLog(@"avcodec_send_packet:%c%c%c%c error:%@",c[3],c[2],c[1],c[0],err);
+            }else{
+                NSLog(@"in:%d",inCount++);
             }
-            sleep(0.9);
-
+            sleep(1.0);
             result = av_read_frame(formatContext, packet);
 //            AVERROR_EOF
         }
+         result = avcodec_send_packet(codecContext, NULL);
         NSString* err;
         if (result == AVERROR(EAGAIN)) {
             err = @"EAGAIN";
@@ -151,10 +151,17 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             err = @"AVERROR_EOF";
         }
         NSLog(@"av_read_frame:%c,%c,%c,%c ,error:%@",(char)(-result),(char)(-result>>8),(char)(-result>>16),(char)(-result>>24),err);
-        
     });
+   struct SwsContext* img_convert_ctx = sws_getContext(codecContext->width, codecContext->height, codecContext->pix_fmt,
+                                     codecContext->width, codecContext->height, AV_PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL);
+    AVFrame* yuvFrame = av_frame_alloc();
+    yuvFrame->width = codecContext->width;
+    yuvFrame->height = codecContext->height;
+    yuvFrame->format = AV_PIX_FMT_YUV420P;
+    av_frame_get_buffer(yuvFrame, 1);
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        while (!_stop) {
+        while (1) {
             int result = avcodec_receive_frame(codecContext, frame);
 //            char* c = (char*)&result;
             if (0 != result) {
@@ -168,10 +175,47 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 }
                 NSLog(@"avcodec_receive_frame:%c,%c,%c,%c ,error:%@",(char)(-result),(char)(-result>>8),(char)(-result>>16),(char)(-result>>24),err);
             }else{
-            
-                NSLog(@"avcodec_receive_frame success");
+                sws_scale(img_convert_ctx, (const uint8_t* const*)frame->data, frame->linesize, 0, frame->height,yuvFrame->data, yuvFrame->linesize);
+
+                
+//                int height = codecContext->height;
+//                int width = codecContext->width;
+//                unsigned char *buf = malloc(height* width*1.5);
+//
+//                int a=0,i;
+//                for (i=0; i<height; i++)
+//                {
+//                    memcpy(buf+a,frame->data[0] + i * frame->linesize[0], width);
+//                    a+=width;
+//                }
+//                for (i=0; i<height/2; i++)
+//                {
+//                    memcpy(buf+a,frame->data[1] + i * frame->linesize[1], width/2);
+//                    a+=width/2;
+//                }
+//                for (i=0; i<height/2; i++)
+//                {   
+//                    memcpy(buf+a,frame->data[2] + i * frame->linesize[2], width/2);
+//                    a+=width/2;   
+//                }  
+
+                NSLog(@"outConnt:%d",coutCount++);
+                int y_size=frame->width * frame->height;
+                uint8_t *data = (uint8_t *)malloc(y_size*1.5);
+                memcpy(data, yuvFrame->data[0], y_size);
+                memcpy(data+y_size, yuvFrame->data[1], y_size/4.0);
+                memcpy(data+y_size+y_size/4, yuvFrame->data[2], y_size/4.0);
+                
+                //
+                //                fwrite(pFrameYUV->data[0],1,y_size,fp_yuv);    //Y
+                //                fwrite(pFrameYUV->data[1],1,y_size/4,fp_yuv);  //U
+                //                fwrite(pFrameYUV->data[2],1,y_size/4,fp_yuv);  //V
+                [self.openglView displayYUV420pData:data width:frame->width height:frame->height];
+
+
+//                NSLog(@"avcodec_receive_frame success");
             }
-            sleep(1);
+            sleep(2.0);
         }
 
     });
@@ -207,7 +251,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //    NSString *output_str= [NSString stringWithFormat:@"resource.bundle/%@",self.outputurl.text];
 //
     
-    NSString *input_nsstr=[[NSBundle mainBundle]pathForResource:@"1" ofType:@"mp4"];
+    NSString *input_nsstr=[[NSBundle mainBundle]pathForResource:@"test" ofType:@"mp4"];
     NSString *output_nsstr=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory
                                         , NSUserDomainMask
                                         , YES)[0];
@@ -257,7 +301,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     out_buffer=(unsigned char *)av_malloc(av_image_get_buffer_size(AV_PIX_FMT_YUV420P,  width, height,1));
     av_image_fill_arrays(pFrameYUV->data, pFrameYUV->linesize,out_buffer,
                          AV_PIX_FMT_YUV420P,width, height,1);
-    packet=(AVPacket *)av_malloc(sizeof(AVPacket));
+    packet = (AVPacket *)av_malloc(sizeof(AVPacket));
     
     img_convert_ctx = sws_getContext(pCodecCtx->width, pCodecCtx->height, pCodecCtx->pix_fmt,
                                      pCodecCtx->width, pCodecCtx->height, AV_PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL);
@@ -290,7 +334,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                           pFrameYUV->data, pFrameYUV->linesize);
                 
                 y_size=pCodecCtx->width*pCodecCtx->height;
-                void *data = malloc(y_size*1.5);
+                uint8_t *data = (uint8_t *)malloc(y_size*1.5);
                 memcpy(data, pFrameYUV->data[0], y_size);
                 memcpy(data+y_size, pFrameYUV->data[1], y_size/4.0);
                 memcpy(data+y_size+y_size/4, pFrameYUV->data[2], y_size/4.0);

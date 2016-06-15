@@ -7,6 +7,7 @@
 //
 
 #import "OpenGLView20.h"
+#import <UIKIT/UIScreen.h>
 
 enum AttribEnum
 {
@@ -420,11 +421,11 @@ void main(void)\
         
         
         glBindTexture(GL_TEXTURE_2D, _textureYUV[TEXU]);
-        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, w/2, h/2, GL_RED_EXT, GL_UNSIGNED_BYTE, data + w * h);
+        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, w/2, h/2, GL_RED_EXT, GL_UNSIGNED_BYTE, (char*)data + w * h);
         
         
         glBindTexture(GL_TEXTURE_2D, _textureYUV[TEXV]);
-        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, w/2, h/2, GL_RED_EXT, GL_UNSIGNED_BYTE, data + w * h * 5 / 4);
+        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, w/2, h/2, GL_RED_EXT, GL_UNSIGNED_BYTE, (char*)data + w * h * 5 / 4);
         
         
         [self render];
@@ -466,10 +467,10 @@ void main(void)\
     glBindTexture(GL_TEXTURE_2D, _textureYUV[TEXY]);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RED_EXT, width, height, 0, GL_RED_EXT, GL_UNSIGNED_BYTE, blackData);
     glBindTexture(GL_TEXTURE_2D, _textureYUV[TEXU]);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RED_EXT, width/2, height/2, 0, GL_RED_EXT, GL_UNSIGNED_BYTE, blackData + width * height);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RED_EXT, width/2, height/2, 0, GL_RED_EXT, GL_UNSIGNED_BYTE, (char*)blackData + width * height);
     
     glBindTexture(GL_TEXTURE_2D, _textureYUV[TEXV]);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RED_EXT, width/2, height/2, 0, GL_RED_EXT, GL_UNSIGNED_BYTE, blackData + width * height * 5 / 4);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RED_EXT, width/2, height/2, 0, GL_RED_EXT, GL_UNSIGNED_BYTE, (char*)blackData + width * height * 5 / 4);
     free(blackData);
 }
 
