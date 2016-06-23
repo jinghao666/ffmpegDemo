@@ -6,8 +6,10 @@
 //  Copyright © 2016年 MinorUncle. All rights reserved.
 //
 
+extern "C"{
+ #import "avformat.h"
+}
 #import "H264Decoder.h"
-#import "avformat.h"
 #import "GJQueue.h"
 @interface H264Decoder()
 {
@@ -66,6 +68,7 @@
         }
     }
 }
+
 -(BOOL)start{
     int result = avcodec_open2(_videoDecoderContext, _videoDecoder, NULL);
     result *= avcodec_open2(_audioDecoderContext, _audioDecoder, NULL);
@@ -74,7 +77,6 @@
         return NO;
     }
     AVPacket* videoPacket;
-    AVFrame* _frame;
     _status = H264DecoderPlaying;
     _videoDecodeQueue = dispatch_queue_create("vidoeDecode", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(_videoDecodeQueue, ^{
@@ -87,6 +89,7 @@
     });
     return YES;
 }
+
 -(void)stop{
     _status = H264DecoderStopped;
 }

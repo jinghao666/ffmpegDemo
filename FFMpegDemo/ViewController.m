@@ -44,7 +44,6 @@
 -(void)allFormat{
     char info[40000] = { 0 };
     
-    av_register_all();
    // avformat_network_init();
 
     AVInputFormat *if_temp = av_iformat_next(NULL);

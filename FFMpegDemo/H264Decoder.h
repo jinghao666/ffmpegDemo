@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 typedef enum _H264DecoderStatus{
     H264DecoderPlaying,
     H264DecoderStopped

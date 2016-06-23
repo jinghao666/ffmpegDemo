@@ -9,21 +9,20 @@
 /* Begin PBXBuildFile section */
 		C51986301CF4446400CCBAEB /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = C519862F1CF4446400CCBAEB /* main.mm */; };
 		C51986331CF4446400CCBAEB /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = C51986321CF4446400CCBAEB /* AppDelegate.mm */; };
-		C51986361CF4446400CCBAEB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C51986351CF4446400CCBAEB /* ViewController.mm */; };
+		C51986361CF4446400CCBAEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C51986351CF4446400CCBAEB /* ViewController.m */; };
 		C51986391CF4446400CCBAEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51986371CF4446400CCBAEB /* Main.storyboard */; };
 		C519863B1CF4446400CCBAEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C519863A1CF4446400CCBAEB /* Assets.xcassets */; };
 		C519863E1CF4446400CCBAEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C519863C1CF4446400CCBAEB /* LaunchScreen.storyboard */; };
 		C51987481CF44EF300CCBAEB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987471CF44EF300CCBAEB /* libz.tbd */; };
 		C519874A1CF44EF900CCBAEB /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987491CF44EF900CCBAEB /* libbz2.tbd */; };
 		C519874C1CF44F1000CCBAEB /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C519874B1CF44F1000CCBAEB /* libiconv.tbd */; };
-		C519874E1CF44F1D00CCBAEB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C519874D1CF44F1D00CCBAEB /* AudioToolbox.framework */; };
-		C51987521CF44F3100CCBAEB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987511CF44F3100CCBAEB /* AVFoundation.framework */; };
-		C51987541CF44FB700CCBAEB /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987531CF44FB700CCBAEB /* VideoToolbox.framework */; };
-		C51987561CF44FD000CCBAEB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987551CF44FD000CCBAEB /* CoreMedia.framework */; };
 		C51D24C11CF7E1A100B6A817 /* HYOpenALHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D24BD1CF7E1A100B6A817 /* HYOpenALHelper.m */; };
-		C51D24C21CF7E1A100B6A817 /* OpenGLView20.mm in Sources */ = {isa = PBXBuildFile; fileRef = C51D24C01CF7E1A100B6A817 /* OpenGLView20.mm */; };
+		C51D24C21CF7E1A100B6A817 /* OpenGLView20.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D24C01CF7E1A100B6A817 /* OpenGLView20.m */; };
 		C53791BD1CF6948300B5CD50 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C53791BC1CF6948300B5CD50 /* 1.mp4 */; };
 		C53791BF1CF69FD500B5CD50 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C53791BE1CF6954900B5CD50 /* test.mp4 */; };
+		C55776E11D1BC43900A88C54 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987531CF44FB700CCBAEB /* VideoToolbox.framework */; };
+		C55776E21D1BC44800A88C54 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C519874D1CF44F1D00CCBAEB /* AudioToolbox.framework */; };
+		C55776E31D1BC45000A88C54 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51987551CF44FD000CCBAEB /* CoreMedia.framework */; };
 		C560FCEF1CF5A9E900488CE4 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C560FCE71CF5A9E900488CE4 /* libavcodec.a */; };
 		C560FCF01CF5A9E900488CE4 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C560FCE81CF5A9E900488CE4 /* libavdevice.a */; };
 		C560FCF11CF5A9E900488CE4 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C560FCE91CF5A9E900488CE4 /* libavfilter.a */; };
@@ -42,7 +41,7 @@
 		C51986311CF4446400CCBAEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C51986321CF4446400CCBAEB /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		C51986341CF4446400CCBAEB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C51986351CF4446400CCBAEB /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		C51986351CF4446400CCBAEB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C51986381CF4446400CCBAEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C519863A1CF4446400CCBAEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C519863D1CF4446400CCBAEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,7 +56,7 @@
 		C51D24BC1CF7E1A100B6A817 /* HYOpenALHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYOpenALHelper.h; sourceTree = "<group>"; };
 		C51D24BD1CF7E1A100B6A817 /* HYOpenALHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYOpenALHelper.m; sourceTree = "<group>"; };
 		C51D24BF1CF7E1A100B6A817 /* OpenGLView20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView20.h; sourceTree = "<group>"; };
-		C51D24C01CF7E1A100B6A817 /* OpenGLView20.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenGLView20.mm; sourceTree = "<group>"; };
+		C51D24C01CF7E1A100B6A817 /* OpenGLView20.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView20.m; sourceTree = "<group>"; };
 		C51D24C41CF7E75300B6A817 /* avfilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avfilter.h; sourceTree = "<group>"; };
 		C51D24C51CF7E75300B6A817 /* avfiltergraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avfiltergraph.h; sourceTree = "<group>"; };
 		C51D24C61CF7E75300B6A817 /* buffersink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffersink.h; sourceTree = "<group>"; };
@@ -160,7 +159,7 @@
 		C560FC841CF5A9E900488CE4 /* videotoolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videotoolbox.h; sourceTree = "<group>"; };
 		C560FC851CF5A9E900488CE4 /* vorbis_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vorbis_parser.h; sourceTree = "<group>"; };
 		C560FC861CF5A9E900488CE4 /* xvmc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xvmc.h; sourceTree = "<group>"; };
-		C560FC911CF5A9E900488CE4 /* avformat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avformat.h; sourceTree = "<group>"; };
+		C560FC911CF5A9E900488CE4 /* avformat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = avformat.h; sourceTree = "<group>"; };
 		C560FC921CF5A9E900488CE4 /* avio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avio.h; sourceTree = "<group>"; };
 		C560FC931CF5A9E900488CE4 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		C560FCE41CF5A9E900488CE4 /* swscale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swscale.h; sourceTree = "<group>"; };
@@ -176,9 +175,9 @@
 		C560FCF91CF5AA3600488CE4 /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
 		C560FCFA1CF5AA3600488CE4 /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		C560FCFC1CF5AA3600488CE4 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
-		C5613F441D1138FD00D0F9E5 /* GJQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJQueue.h; sourceTree = "<group>"; };
-		C5613F451D11397F00D0F9E5 /* H264Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264Decoder.h; sourceTree = "<group>"; };
-		C5613F461D11397F00D0F9E5 /* H264Decoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = H264Decoder.mm; sourceTree = "<group>"; };
+		C5613F441D1138FD00D0F9E5 /* GJQueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = GJQueue.h; sourceTree = "<group>"; };
+		C5613F451D11397F00D0F9E5 /* H264Decoder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = H264Decoder.h; sourceTree = "<group>"; };
+		C5613F461D11397F00D0F9E5 /* H264Decoder.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = H264Decoder.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,12 +185,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C51987561CF44FD000CCBAEB /* CoreMedia.framework in Frameworks */,
-				C51987541CF44FB700CCBAEB /* VideoToolbox.framework in Frameworks */,
+				C55776E31D1BC45000A88C54 /* CoreMedia.framework in Frameworks */,
+				C55776E21D1BC44800A88C54 /* AudioToolbox.framework in Frameworks */,
+				C55776E11D1BC43900A88C54 /* VideoToolbox.framework in Frameworks */,
 				C560FCF21CF5A9E900488CE4 /* libavformat.a in Frameworks */,
 				C560FCFD1CF5AA3600488CE4 /* libx264.a in Frameworks */,
-				C51987521CF44F3100CCBAEB /* AVFoundation.framework in Frameworks */,
-				C519874E1CF44F1D00CCBAEB /* AudioToolbox.framework in Frameworks */,
 				C560FCF41CF5A9E900488CE4 /* libpostproc.a in Frameworks */,
 				C560FCF61CF5A9E900488CE4 /* libswscale.a in Frameworks */,
 				C560FCF01CF5A9E900488CE4 /* libavdevice.a in Frameworks */,
@@ -246,7 +244,7 @@
 				C53791BE1CF6954900B5CD50 /* test.mp4 */,
 				C53791BC1CF6948300B5CD50 /* 1.mp4 */,
 				C51986341CF4446400CCBAEB /* ViewController.h */,
-				C51986351CF4446400CCBAEB /* ViewController.mm */,
+				C51986351CF4446400CCBAEB /* ViewController.m */,
 				C51986371CF4446400CCBAEB /* Main.storyboard */,
 				C519863A1CF4446400CCBAEB /* Assets.xcassets */,
 				C519863C1CF4446400CCBAEB /* LaunchScreen.storyboard */,
@@ -277,7 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				C51D24BF1CF7E1A100B6A817 /* OpenGLView20.h */,
-				C51D24C01CF7E1A100B6A817 /* OpenGLView20.mm */,
+				C51D24C01CF7E1A100B6A817 /* OpenGLView20.m */,
 			);
 			path = OpenGLPlayer;
 			sourceTree = "<group>";
@@ -589,11 +587,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5613F471D11397F00D0F9E5 /* H264Decoder.mm in Sources */,
-				C51986361CF4446400CCBAEB /* ViewController.mm in Sources */,
+				C51986361CF4446400CCBAEB /* ViewController.m in Sources */,
 				C51986331CF4446400CCBAEB /* AppDelegate.mm in Sources */,
 				C51986301CF4446400CCBAEB /* main.mm in Sources */,
 				C51D24C11CF7E1A100B6A817 /* HYOpenALHelper.m in Sources */,
-				C51D24C21CF7E1A100B6A817 /* OpenGLView20.mm in Sources */,
+				C51D24C21CF7E1A100B6A817 /* OpenGLView20.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,8 +712,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFmpeg/include";
 				INFOPLIST_FILE = FFMpegDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -742,8 +744,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFmpeg/include";
 				INFOPLIST_FILE = FFMpegDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
